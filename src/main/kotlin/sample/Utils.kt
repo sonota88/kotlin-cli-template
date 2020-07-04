@@ -22,6 +22,54 @@ class Utils {
             putskv(k, inspect(v))
         }
 
+        fun parseArgs(
+            args: List<String>
+        ) : Map<String, String>{
+            return parseArgs(
+                args,
+                listOf()
+            )
+        }
+
+        fun parseArgs(
+            args: List<String>,
+            names: List<String>
+        ) : Map<String, String>{
+            var opts = hashMapOf<String, String>()
+            if (args.size == names.size) {
+                // no optional
+            } else if (args.size > names.size) {
+                opts = parseOptionals(
+                    slice(args, names.size, args.size)
+                )
+            }
+
+            var i = -1
+            names.forEach{
+                i += 1
+                opts[it] = args[i]
+            }
+
+            return opts
+        }
+
+        private fun parseOptionals(args: List<String>)
+            : HashMap<String, String>
+        {
+            var opts = hashMapOf<String, String>()
+
+            for (arg in args) {
+                val i = arg.indexOf("=")
+                if (1 <= i) {
+                    val k = arg.substring(0, i)
+                    val v = arg.substring(i + 1, arg.length)
+                    opts[k] = v
+                }
+            }
+
+            return opts
+        }
+
         fun slice(
             xs: List<String>, from: Int, until: Int
         ): List<String>
