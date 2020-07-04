@@ -26,6 +26,8 @@ class Utils {
                     return inspectList(obj)
                 } else if (isArray(obj)) {
                     return inspectArray(obj)
+                } else if (isMap(obj)) {
+                    return inspectMap(obj)
                 } else {
                     val className = obj::class.toString()
                     throw RuntimeException("not yet impl (${className})")
@@ -79,6 +81,26 @@ class Utils {
             return inspectList(xs.toList())
         }
 
+        fun isMap(obj: Any): Boolean {
+            return (obj::class).toString() == "class java.util.HashMap"
+        }
+
+        fun inspectMap(obj: Any): String {
+            val map = obj as Map<Any, Any>
+            val dq = "\""
+            var s = "{"
+
+            var i = -1
+            map.forEach {
+                i += 1
+                if (1 <= i) {
+                    s += ", "
+                }
+                s += dq + it.key + dq + ": " + dq + it.value + dq
+            }
+
+            return s + "}"
+        }
     }
 
 }

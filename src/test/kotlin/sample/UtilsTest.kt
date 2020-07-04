@@ -63,7 +63,7 @@ public class UtilsTest {
                 listOf("a", "b")
             )
         )
-     }
+    }
 
     @Test
     fun inspectArray(){
@@ -71,6 +71,16 @@ public class UtilsTest {
             """["a", "b"]""",
             Utils.inspect(
                 arrayOf("a", "b")
+            )
+        )
+     }
+
+    @Test
+    fun inspectMap(){
+        assertEquals(
+            """{"a": "A", "b": "B"}""",
+            Utils.inspect(
+                hashMapOf("a" to "A", "b" to "B")
             )
         )
      }
