@@ -30,6 +30,9 @@ fun main(rawArgs: Array<String>) {
         "cat" -> {
             model.cat()
         }
+        "cat_v2" -> {
+            model.cat_v2()
+        }
         else -> {
             println("invalid command (${cmd})")
             exitProcess(1)
