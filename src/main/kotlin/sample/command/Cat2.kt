@@ -21,15 +21,11 @@ class Cat2 {
                         }
 
                         if (showAll) {
-                            val c = n.toChar()
-                            if (c == '\t') {
-                                osw.write("^I")
-                            } else if (c == '\r') {
-                                osw.write("^M")
-                            } else if (c == '\n') {
-                                osw.write("$\n")
-                            } else {
-                                osw.write(n)
+                            when (n.toChar()) {
+                                '\t' -> osw.write("^I") 
+                                '\r' -> osw.write("^M") 
+                                '\n' -> osw.write("$\n") 
+                                else -> osw.write(n) 
                             }
                         } else {
                             osw.write(n)
