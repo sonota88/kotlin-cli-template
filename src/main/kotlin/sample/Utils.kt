@@ -31,7 +31,16 @@ class Utils {
 
         fun inspectString(s: String): String {
             val dq = "\""
-            return dq + s + dq
+            return (
+                dq +
+                s
+                    .replace("\\", "\\\\")
+                    .replace("\n", "\\n")
+                    .replace("\r", "\\r")
+                    .replace("\"", "\\\"")
+                    .replace("\t", "\\t") +
+                dq
+            )
         }
 
     }
