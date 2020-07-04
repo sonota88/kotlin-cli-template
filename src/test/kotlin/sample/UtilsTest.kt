@@ -19,4 +19,14 @@ public class UtilsTest {
             Utils.inspect(123)
         )
     }
+
+    @Test
+    fun inspectString(){
+        val dq = "\""
+
+        assertEquals(
+            dq + "fdsa" + dq,
+            Utils.inspect("fdsa")
+        )
+    }
 }

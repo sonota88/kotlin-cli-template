@@ -20,11 +20,18 @@ class Utils {
             } else {
                 if (obj is Int) {
                     return obj.toString()
+                } else if (obj is String) {
+                    return inspectString(obj)
                 } else {
                     val className = obj::class.toString()
                     throw RuntimeException("not yet impl (${className})")
                 }
             }
+        }
+
+        fun inspectString(s: String): String {
+            val dq = "\""
+            return dq + s + dq
         }
 
     }
