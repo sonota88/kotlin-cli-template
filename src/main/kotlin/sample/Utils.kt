@@ -14,6 +14,14 @@ class Utils {
             )
         }
 
+        fun p(x: Any?) {
+            puts(Utils.inspect(x))
+        }
+
+        fun pkv(k: String, v: Any) {
+            putskv(k, inspect(v))
+        }
+
         fun inspect(obj: Any?): String {
             if (obj == null) {
                 return "null"
