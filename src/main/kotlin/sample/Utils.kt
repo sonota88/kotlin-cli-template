@@ -18,8 +18,12 @@ class Utils {
             if (obj == null) {
                 return "null"
             } else {
-                val className = obj::class.toString()
-                throw RuntimeException("not yet impl (${className})")
+                if (obj is Int) {
+                    return obj.toString()
+                } else {
+                    val className = obj::class.toString()
+                    throw RuntimeException("not yet impl (${className})")
+                }
             }
         }
 

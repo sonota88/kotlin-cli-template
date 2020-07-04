@@ -11,4 +11,12 @@ public class UtilsTest {
             Utils.inspect(null)
         )
     }
+
+    @Test
+    fun inspectInt(){
+        assertEquals(
+            "123",
+            Utils.inspect(123)
+        )
+    }
 }
