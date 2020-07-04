@@ -54,4 +54,14 @@ public class UtilsTest {
             Utils.inspect(input)
          )
      }
+
+    @Test
+    fun inspectList(){
+        assertEquals(
+            """["a", "b"]""",
+            Utils.inspect(
+                listOf("a", "b")
+            )
+        )
+     }
 }

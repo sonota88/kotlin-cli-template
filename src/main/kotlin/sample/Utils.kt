@@ -22,6 +22,8 @@ class Utils {
                     return obj.toString()
                 } else if (obj is String) {
                     return inspectString(obj)
+                } else if (isList(obj)) {
+                    return inspectList(obj)
                 } else {
                     val className = obj::class.toString()
                     throw RuntimeException("not yet impl (${className})")
@@ -41,6 +43,29 @@ class Utils {
                     .replace("\t", "\\t") +
                 dq
             )
+        }
+
+        fun isList(obj: Any): Boolean {
+            val className = (obj::class).toString()
+            return (
+                className == "class java.util.ArrayList" ||
+                className == "class java.util.Arrays\$ArrayList" ||
+                className == "class java.util.Collections\$SingletonList"
+            )
+        }
+
+        fun inspectList(obj: Any): String {
+            val xs = obj as List<Any>
+            var s = "["
+
+            for ( (i, x) in xs.withIndex() ) {
+                if (1 <= i) {
+                    s += ", "
+                }
+                s += inspect(x)
+            }
+
+            return s + "]"
         }
 
     }
