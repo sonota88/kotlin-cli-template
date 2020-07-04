@@ -19,10 +19,15 @@ fun main(rawArgs: Array<String>) {
 
     when (cmd) {
         "add" -> {
+            val opts = Utils.parseArgs(
+                cmdArgs,
+                listOf("a", "b")
+            )
+
             Utils.puts(
                 model.add(
-                    Integer.valueOf(cmdArgs[0]),
-                    Integer.valueOf(cmdArgs[1])
+                    Integer.valueOf(opts["a"]),
+                    Integer.valueOf(opts["b"])
                 )
             )
         }
