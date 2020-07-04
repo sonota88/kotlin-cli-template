@@ -5,7 +5,7 @@ import java.io.InputStreamReader
 import java.io.OutputStreamWriter
 
 class Cat2 {
-    fun main() {
+    fun main(showAll: Boolean) {
         InputStreamReader(
             System.`in`,
             StandardCharsets.UTF_8
@@ -15,11 +15,25 @@ class Cat2 {
                     StandardCharsets.UTF_8
                 ).use { osw ->
                     while (true) {
-                        val c = isr.read()
-                        if (c < 0) {
+                        val n = isr.read()
+                        if (n < 0) {
                             break
                         }
-                        osw.write(c)
+
+                        if (showAll) {
+                            val c = n.toChar()
+                            if (c == '\t') {
+                                osw.write("^I")
+                            } else if (c == '\r') {
+                                osw.write("^M")
+                            } else if (c == '\n') {
+                                osw.write("$\n")
+                            } else {
+                                osw.write(n)
+                            }
+                        } else {
+                            osw.write(n)
+                        }
                     }
                 }
         }

@@ -17,7 +17,7 @@ class Model {
         }
     }
 
-    fun cat2() {
-        Cat2().main()
+    fun cat2(showAll: Boolean) {
+        Cat2().main(showAll)
     }
 }

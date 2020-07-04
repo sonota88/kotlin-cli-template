@@ -31,7 +31,10 @@ fun main(rawArgs: Array<String>) {
             model.cat()
         }
         "cat2" -> {
-            model.cat2()
+            val opts = Utils.parseArgs(cmdArgs)
+            model.cat2(
+                opts.containsKey("-A")
+            )
         }
         else -> {
             println("invalid command (${cmd})")
