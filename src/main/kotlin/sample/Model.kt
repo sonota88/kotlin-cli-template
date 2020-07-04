@@ -17,7 +17,7 @@ class Model {
         }
     }
 
-    fun cat_v2() {
+    fun cat2() {
         Cat2().main()
     }
 }
