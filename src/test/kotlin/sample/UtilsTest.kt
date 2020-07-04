@@ -64,4 +64,14 @@ public class UtilsTest {
             )
         )
      }
+
+    @Test
+    fun inspectArray(){
+        assertEquals(
+            """["a", "b"]""",
+            Utils.inspect(
+                arrayOf("a", "b")
+            )
+        )
+     }
 }

@@ -24,6 +24,8 @@ class Utils {
                     return inspectString(obj)
                 } else if (isList(obj)) {
                     return inspectList(obj)
+                } else if (isArray(obj)) {
+                    return inspectArray(obj)
                 } else {
                     val className = obj::class.toString()
                     throw RuntimeException("not yet impl (${className})")
@@ -66,6 +68,15 @@ class Utils {
             }
 
             return s + "]"
+        }
+
+        fun isArray(obj: Any): Boolean {
+            return (obj::class).toString() == "class kotlin.Array"
+        }
+
+        fun inspectArray(obj: Any): String {
+            val xs = obj as Array<Any>
+            return inspectList(xs.toList())
         }
 
     }
