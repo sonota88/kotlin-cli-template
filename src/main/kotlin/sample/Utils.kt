@@ -44,10 +44,8 @@ class Utils {
                 )
             }
 
-            var i = -1
-            names.forEach{
-                i += 1
-                opts[it] = args[i]
+            for ((i, name) in names.withIndex()) {
+                opts[name] = args[i]
             }
 
             return opts
