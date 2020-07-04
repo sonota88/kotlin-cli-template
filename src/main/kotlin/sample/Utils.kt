@@ -22,6 +22,22 @@ class Utils {
             putskv(k, inspect(v))
         }
 
+        fun slice(
+            xs: List<String>, from: Int, until: Int
+        ): List<String>
+        {
+            val size = until - from
+            val newXs = MutableList<String>(size) { "" }
+
+            for ( (i, x) in xs.withIndex() ) {
+                if (from <= i && i < until) {
+                    newXs.set(i - from, x)
+                }
+            }
+
+            return newXs
+        }
+
         fun inspect(obj: Any?): String {
             if (obj == null) {
                 return "null"
