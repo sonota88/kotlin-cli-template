@@ -12,10 +12,9 @@ class Utils {
             println(x)
         }
 
-        fun putskv(k: String, v: Any) {
-            puts(
-                "${k} (${v.toString()})"
-            )
+        fun putskv(k: String, v: Any?) {
+            val vstr = if (v == null) "null" else v.toString()
+            puts("${k} (${vstr})")
         }
 
         fun p(x: Any?) {
