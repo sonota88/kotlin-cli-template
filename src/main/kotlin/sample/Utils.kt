@@ -95,6 +95,10 @@ class Utils {
                     return obj.toString()
                 } else if (obj is String) {
                     return inspectString(obj)
+                } else if (obj is Char) {
+                    return obj.toString()
+                } else if (obj is Boolean) {
+                    return obj.toString()
                 } else if (isList(obj)) {
                     return inspectList(obj)
                 } else if (isArray(obj)) {
