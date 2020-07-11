@@ -4,6 +4,10 @@ class Utils {
 
     companion object {
 
+        fun dq(): String {
+            return "\""
+        }
+
         fun puts(x: Any?) {
             println(x)
         }
@@ -106,16 +110,15 @@ class Utils {
         }
 
         fun inspectString(s: String): String {
-            val dq = "\""
             return (
-                dq +
+                dq() +
                 s
                     .replace("\\", "\\\\")
                     .replace("\n", "\\n")
                     .replace("\r", "\\r")
                     .replace("\"", "\\\"")
                     .replace("\t", "\\t") +
-                dq
+                dq()
             )
         }
 
@@ -157,7 +160,6 @@ class Utils {
 
         fun inspectMap(obj: Any): String {
             val map = obj as Map<Any, Any>
-            val dq = "\""
             var s = "{"
 
             var i = -1
@@ -166,7 +168,7 @@ class Utils {
                 if (1 <= i) {
                     s += ", "
                 }
-                s += dq + it.key + dq + ": " + dq + it.value + dq
+                s += dq() + it.key + dq() + ": " + dq() + it.value + dq()
             }
 
             return s + "}"
