@@ -36,6 +36,10 @@ fun main(rawArgs: Array<String>) {
                 opts.containsKey("-A")
             )
         }
+        "expr" -> {
+            val result = model.expr(cmdArgs)
+            Utils.puts(result)
+        }
         else -> {
             println("invalid command (${cmd})")
             exitProcess(1)
