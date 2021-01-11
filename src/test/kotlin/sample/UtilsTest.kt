@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 public class UtilsTest {
+
+    val DQ = Utils.DQ
+
     @Test
     fun inspectNull(){
         assertEquals(
@@ -22,10 +25,8 @@ public class UtilsTest {
 
     @Test
     fun inspectString(){
-        val dq = "\""
-
         assertEquals(
-            dq + "fdsa" + dq,
+            DQ + "fdsa" + DQ,
             Utils.inspect("fdsa")
         )
     }
@@ -36,18 +37,17 @@ public class UtilsTest {
         val lf = "\n"
         val cr = "\r"
         val tab = "\t"
-        val dq = "\""
 
-        val input = "_${bs}${bs}_${lf}${lf}_${cr}${cr}_${tab}${tab}_${dq}${dq}_"
+        val input = "_${bs}${bs}_${lf}${lf}_${cr}${cr}_${tab}${tab}_${DQ}${DQ}_"
 
         val expected =
-            dq +
+            DQ +
             "_" + bs + bs + bs + bs +
             "_" + bs + "n" + bs + "n" +
             "_" + bs + "r" + bs + "r" +
             "_" + bs + "t" + bs + "t" +
-            "_" + bs + dq + bs + dq +
-            "_" + dq
+            "_" + bs + DQ + bs + DQ +
+            "_" + DQ
 
         assertEquals(
             expected,

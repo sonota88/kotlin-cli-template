@@ -4,9 +4,7 @@ class Utils {
 
     companion object {
 
-        fun dq(): String {
-            return "\""
-        }
+        const val DQ = "\""
 
         fun puts(x: Any?) {
             println(x)
@@ -114,14 +112,14 @@ class Utils {
 
         fun inspectString(s: String): String {
             return (
-                dq() +
+                DQ +
                 s
                     .replace("\\", "\\\\")
                     .replace("\n", "\\n")
                     .replace("\r", "\\r")
                     .replace("\"", "\\\"")
                     .replace("\t", "\\t") +
-                dq()
+                DQ
             )
         }
 
@@ -171,7 +169,7 @@ class Utils {
                 if (1 <= i) {
                     s += ", "
                 }
-                s += dq() + it.key + dq() + ": " + dq() + it.value + dq()
+                s += DQ + it.key + DQ + ": " + DQ + it.value + DQ
             }
 
             return s + "}"
