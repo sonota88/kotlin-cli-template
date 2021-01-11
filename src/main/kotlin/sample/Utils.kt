@@ -5,6 +5,7 @@ class Utils {
     companion object {
 
         const val DQ = "\""
+        const val LF = "\n"
 
         fun puts(x: Any?) {
             println(x)
