@@ -4,6 +4,7 @@ class Utils {
 
     companion object {
 
+        const val BS = "\\"
         const val DQ = "\""
         const val LF = "\n"
 
@@ -132,11 +133,11 @@ class Utils {
             return (
                 DQ +
                 s
-                    .replace("\\", "\\\\")
-                    .replace("\n", "\\n")
-                    .replace("\r", "\\r")
-                    .replace("\"", "\\\"")
-                    .replace("\t", "\\t") +
+                    .replace(BS, BS + BS)
+                    .replace("\n", BS + "n")
+                    .replace("\r", BS + "r")
+                    .replace("\"", BS + "\"")
+                    .replace("\t", BS + "t") +
                 DQ
             )
         }
