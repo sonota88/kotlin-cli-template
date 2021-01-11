@@ -10,6 +10,10 @@ class Utils {
             println(x)
         }
 
+        fun puts_e(x: Any?) {
+            System.err.println(x)
+        }
+
         fun putskv(k: String, v: Any?) {
             val vstr = if (v == null) "null" else v.toString()
             puts("${k} (${vstr})")
