@@ -20,12 +20,25 @@ class Utils {
             puts("${k} (${vstr})")
         }
 
+        fun putskv_e(k: String, v: Any?) {
+            val vstr = if (v == null) "null" else v.toString()
+            puts_e("${k} (${vstr})")
+        }
+
         fun p(x: Any?) {
             puts(Utils.inspect(x))
         }
 
+        fun p_e(x: Any?) {
+            puts_e(Utils.inspect(x))
+        }
+
         fun pkv(k: String, v: Any) {
             putskv(k, inspect(v))
+        }
+
+        fun pkv_e(k: String, v: Any) {
+            putskv_e(k, inspect(v))
         }
 
         fun parseArgs(
