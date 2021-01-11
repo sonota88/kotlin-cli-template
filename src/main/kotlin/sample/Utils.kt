@@ -179,6 +179,21 @@ class Utils {
 
             return s + "}"
         }
+
+        fun readStdinAll(): String {
+            var s: String = ""
+
+            while (true) {
+                val line : String? = readLine()
+                if (line == null) {
+                    break
+                }
+                s += line + LF
+            }
+
+            return s
+        }
+
     }
 
 }
