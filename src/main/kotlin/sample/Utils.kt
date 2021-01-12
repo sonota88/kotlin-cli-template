@@ -6,6 +6,7 @@ class Utils {
 
         const val BS = "\\"
         const val DQ = "\""
+        const val CR = "\r"
         const val LF = "\n"
 
         fun puts(x: Any?) {
@@ -135,7 +136,7 @@ class Utils {
                 s
                     .replace(BS, BS + BS)
                     .replace(LF, BS + "n")
-                    .replace("\r", BS + "r")
+                    .replace(CR, BS + "r")
                     .replace("\"", BS + "\"")
                     .replace("\t", BS + "t") +
                 DQ
