@@ -138,7 +138,7 @@ class Utils {
                     .replace(BS, BS + BS)
                     .replace(LF, BS + "n")
                     .replace(CR, BS + "r")
-                    .replace("\"", BS + "\"")
+                    .replace(DQ, BS + DQ)
                     .replace(TAB, BS + "t") +
                 DQ
             )
