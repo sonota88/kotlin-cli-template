@@ -134,7 +134,7 @@ class Utils {
                 DQ +
                 s
                     .replace(BS, BS + BS)
-                    .replace("\n", BS + "n")
+                    .replace(LF, BS + "n")
                     .replace("\r", BS + "r")
                     .replace("\"", BS + "\"")
                     .replace("\t", BS + "t") +
